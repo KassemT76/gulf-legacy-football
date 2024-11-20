@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: #1d311d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(5, 46, 20);
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+#pic {
+  background-image: url(https://img.freepik.com/free-photo/view-soccer-field-with-grass_23-2150887312.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#pic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url(https://img.freepik.com/free-photo/view-soccer-field-with-grass_23-2150887312.jpg);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(50%) ;
+}
+
+#teamPic {
+  filter: brightness(100%);
+  background-image: url(https://www.hrw.org/sites/default/files/styles/embed_xxl/public/media_2022/06/202206eca_france_soccer_team.jpg?itok=kpKG_42l);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#teamPic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url(https://www.hrw.org/sites/default/files/styles/embed_xxl/public/media_2022/06/202206eca_france_soccer_team.jpg?itok=kpKG_42l);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(25%);
+}
+#leaugePic {
+  filter: brightness(100%);
+  background-image: url(https://images.squarespace-cdn.com/content/v1/57ab80739de4bbfb90d91277/1626199371566-M4YTGGTWSPQ6CCTHZ7KF/--17+%281%29.jpg?format=1000w);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#leaugePic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url(https://images.squarespace-cdn.com/content/v1/57ab80739de4bbfb90d91277/1626199371566-M4YTGGTWSPQ6CCTHZ7KF/--17+%281%29.jpg?format=1000w);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(50%) ;
+}
+
+#refereePic {
+  filter: brightness(100%);
+  background-image: url(https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/UYYYSMBMUQUUEQVRZHZ2UGOEQA.jpg&w=1200);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#refereePic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url(https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/UYYYSMBMUQUUEQVRZHZ2UGOEQA.jpg&w=1200);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(50%);
+}
+
+#rentalPic {
+  filter: brightness(100%);
+  background-image: url(https://cdn1.sportngin.com/attachments/photo/6457/8468/DSC_5049_untitled_medium.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#rentalPic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url(https://cdn1.sportngin.com/attachments/photo/6457/8468/DSC_5049_untitled_medium.jpg);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(50%);
+}
+
+#picText2 {
+  color: #ffffff;
+  text-shadow: 3px 3px darkgreen;
+}
+
+#picTextp {
+  color: #ffffff;
+  text-shadow: 1.5px 1.5px darkgreen;
+}
