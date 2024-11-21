@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
 import HomePage from "./home";
 import { initializeApp } from "firebase/app";
 import { collection, DocumentReference, getDoc, getDocs, getFirestore, limit, orderBy, query } from "firebase/firestore";
@@ -20,11 +18,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function getTeamName(docRef: DocumentReference) {
-  let dummy = {
+  const doc = await getDoc(docRef)
+  const data = doc.data() || {
     teamName: "N/A"
   }
-  let doc = await getDoc(docRef)
-  let data = doc.data() || dummy
   return data.teamName;
 }
 

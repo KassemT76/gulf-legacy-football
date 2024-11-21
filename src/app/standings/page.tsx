@@ -3,7 +3,7 @@ import React from "react";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, Firestore, addDoc, DocumentData, orderBy, query } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs} from 'firebase/firestore/lite';
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 
@@ -26,29 +26,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Get a list of teams from our database
-async function addTeam(teamName: string, division: string, matchesWon: number, matchesPlayed: number, matchesLost: number, matchesDrawn: number, goalsFor: number, goalsAgainst: number) {
-  try {
-    const docRef = await addDoc(collection(db, "Teams"), {
-      teamName: teamName,
-      division: division, 
-      matchesPlayed: matchesPlayed, 
-      matchesWon: matchesWon, 
-      matchesLost: matchesLost, 
-      matchesDrawn: matchesDrawn, 
-      goalsFor: goalsFor, 
-      goalsAgainst: goalsAgainst
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-}
-
 export default async function standings() {
   const teamsCollection = collection(db, 'Teams');
   const teamsSnapShot = await getDocs(teamsCollection);
-  let tl = teamsSnapShot.docs.map(doc => doc.data());
+  const tl = teamsSnapShot.docs.map(doc => doc.data());
   
   const teamsList = tl.filter(item => item.division != "-1" && item.division != undefined );
 
@@ -57,9 +38,8 @@ export default async function standings() {
     Object.defineProperty(item, "pointDifference", {value:item.goalsFor as number - item.goalsAgainst as number})
   });
 
-  var divisionMap = new Map();
-  for(let x of teamsList){
-    console.log(divisionMap.get(x.division))
+  const divisionMap = new Map();
+  for(const x of teamsList){
     if(x.division == undefined || x.division == -1) continue;
     if(divisionMap.get(x.division) != undefined){
       divisionMap.get(x.division).push(x)
@@ -70,7 +50,7 @@ export default async function standings() {
 
   console.log(divisionMap)
 
-  divisionMap.forEach((value, key) => {
+  divisionMap.forEach((value) => {
     value.sort(function(a: any, b: any){  
       if(a.points > b.points){
         return -1;
@@ -127,7 +107,7 @@ export default async function standings() {
           {
               teamsList.map((item,index) => { 
                 return (
-                <TableRow >
+                <TableRow key={item.teamName+index} >
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{item.teamName}</TableCell>
                 <TableCell>{item.matchesPlayed}</TableCell>
@@ -184,40 +164,3 @@ export default async function standings() {
     </div>
   );
 }
-
-/*
-Page for scoreboard.
-
-
-Page for Schedule/Results
-
-Match class:
-
-Division
-Kick off time
-Teams
-Scores
-Location
-
-Team class docName: TeamName:
-
-
-Matches
-Won
-Lost
-Drawn
-GoalsFor
-GoalsAgainst
-Division
-
-Calculate CLient Side:
-
-GoalsDifference
-Points
-
-
-
-Register page
-
-
-*/

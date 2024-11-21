@@ -6,8 +6,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 // Define the POST handler
 export async function POST(request: Request) {
-  const { searchParams } = new URL(request.url || "");
-
   const { registrationType, email, phoneNumber, teamName, numPeople, teamPos, fullName } = await request.json();
 
   let customer;
@@ -28,9 +26,6 @@ export async function POST(request: Request) {
     } catch (error: any) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
-    
-    console.table(customer)
-
   try {
     // Step 1: Check if customer exists or create a new one
   

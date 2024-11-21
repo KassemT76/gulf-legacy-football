@@ -17,11 +17,10 @@ const firebaseConfig = {
 };
 
 async function getTeamName(docRef: DocumentReference) {
-  let dummy = {
+  const doc = await getDoc(docRef)
+  const data = doc.data() || {
     teamName: "N/A"
   }
-  let doc = await getDoc(docRef)
-  let data = await doc.data() || dummy
   console.log(data.teamName);
   return (data.teamName as string);
 }
@@ -52,9 +51,9 @@ export default async function Schedule() {
 
   // Organize the matches by weeks
   const seasonStart = matches[0].kickOffTime;
-  let weeks: any[][] = [];
+  const weeks: any[][] = [];
   let index = 0;
-  let date = new Date(seasonStart);
+  const date = new Date(seasonStart);
 
   matches.forEach((element) => {
     const matchDate = new Date(element.kickOffTime); 

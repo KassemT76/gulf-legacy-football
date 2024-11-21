@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getFirestore, collection, getDocs, orderBy, query, getDoc, DocumentReference, Timestamp, addDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, orderBy, query} from "firebase/firestore";
 // Import the functions you need from the SDKs you need
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
@@ -20,19 +20,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function addPost(author: string, body: string, title: string) {
-  try {
-    const docRef = await addDoc(collection(db, "BlogPosts"), {
-      author: author,
-      body: body,
-      title: title,
-      date: Timestamp.fromDate(new Date()) // Current date and time in Firebase Timestamp format
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-}
+// async function addPost(author: string, body: string, title: string) {
+//   try {
+//     const docRef = await addDoc(collection(db, "BlogPosts"), {
+//       author: author,
+//       body: body,
+//       title: title,
+//       date: Timestamp.fromDate(new Date()) // Current date and time in Firebase Timestamp format
+//     });
+//     console.log("Document written with ID: ", docRef.id);
+//   } catch (e) {
+//     console.error("Error adding document: ", e);
+//   }
+// }
 
 export default async function Blog() {
   const col = collection(db, "BlogPosts");
@@ -62,7 +62,7 @@ export default async function Blog() {
       <p className="my-1 text-gray-200">Get caught up with what is happening in football in our community and worldwide!</p>
       
       {posts.map((post) => (
-            <Card className="container my-4">
+            <Card key={post.title} className="container my-4">
             <CardHeader>
               <h1 className="text-3xl">{post.title}</h1>
               <div className="flex-row">

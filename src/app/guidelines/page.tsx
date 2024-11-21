@@ -94,29 +94,25 @@ export default function Guidelines() {
 
             <AccordionItem value="item-2">
               <AccordionTrigger className="text-xl font-bold text-white">How can I register for a team or league?</AccordionTrigger>
-              <AccordionContent className="text-gray-200">
-                You can register for a team or league through our website. Simply visit the "Register" section, choose your preferred league, and complete the registration form.
-              </AccordionContent>
+              <AccordionContent className="text-gray-200">You can register for a team or league through our website. Simply visit the &quot;Register&quot; section, choose your preferred league, and complete the registration form.</AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-xl font-bold text-white">What safety protocols are in place during matches?</AccordionTrigger>
-              <AccordionContent className="text-gray-200">
-                Safety is our top priority. We ensure that all players wear appropriate gear, follow health guidelines, and we have medical staff on site during matches. We also enforce strict safety protocols for COVID-19.
-              </AccordionContent>
+              <AccordionContent className="text-gray-200">Safety is our top priority. We ensure that all players wear appropriate gear, follow health guidelines, and we have medical staff on site during matches. We also enforce strict safety protocols for COVID-19.</AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-4">
               <AccordionTrigger className="text-xl font-bold text-white">Can I join as an individual player?</AccordionTrigger>
               <AccordionContent className="text-gray-200">
-                Yes! If you don't have a team, you can register as an individual player and we will place you on a team that suits your skill level.
+                Yes! If you don&apos;t have a team, you can register as an individual player and we will place you on a team that suits your skill level.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-5">
               <AccordionTrigger className="text-xl font-bold text-white">What types of leagues do you offer?</AccordionTrigger>
               <AccordionContent className="text-gray-200">
-                We offer various types of leagues including men’s, women’s, and mixed divisions. We also have recreational and competitive leagues to match different playing preferences.
+                We offer various types of leagues including men&apos;s, women&apos;s, and mixed divisions. We also have recreational and competitive leagues to match different playing preferences.
               </AccordionContent>
             </AccordionItem>
 
@@ -144,12 +140,12 @@ export default function Guidelines() {
             <AccordionItem value="item-9">
               <AccordionTrigger className="text-xl font-bold text-white">How do I find out when my team is playing?</AccordionTrigger>
               <AccordionContent className="text-gray-200">
-                The schedule for all matches is posted on our website under the "Schedule" section. You can also receive updates via email or our official app.
+                The schedule for all matches is posted on our website under the &quot;Schedule&quot; section. You can also receive updates via email or our official app.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-10">
-              <AccordionTrigger className="text-xl font-bold text-white">How can I get involved if I don’t want to play?</AccordionTrigger>
+              <AccordionTrigger className="text-xl font-bold text-white">How can I get involved if I don&apos;t want to play?</AccordionTrigger>
               <AccordionContent className="text-gray-200">
                 We offer various ways to get involved, from volunteering and officiating to sponsoring teams or events. You can reach out to us through our contact page to learn more.
               </AccordionContent>

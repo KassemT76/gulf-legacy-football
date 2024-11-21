@@ -108,8 +108,8 @@ export default function SuccessPage() {
                       </div>
                     )}
                     <div className="text-center">
-                      <p className="font-semibold mb-2">What's Next?</p>
-                      <p>We'll send a confirmation email with further details about the event and your registration.</p>
+                      <p className="font-semibold mb-2">What&apos;s Next?</p>
+                      <p>We&apos;ll send a confirmation email with further details about the event and your registration.</p>
                       <p>Please check your inbox (and spam folder) for this important information.</p>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ export default function SuccessPage() {
               <CardTitle className="text-2xl font-bold">Need Help?</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-4">If you have any questions or concerns, please don't hesitate to reach out:</p>
+              <p className="mb-4">If you have any questions or concerns, please don&apos;t hesitate to reach out:</p>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 mr-2" />

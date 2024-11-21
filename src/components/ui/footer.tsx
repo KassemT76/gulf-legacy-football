@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from "./button";
 import { Phone, Mail, MapPin, Instagram, Twitter, Youtube, LucideIcon } from 'lucide-react';
 
 interface ContactInfo {

@@ -7,15 +7,12 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Toaster } from "@/components/ui/toaster"
-import { useToast } from "@/hooks/use-toast"
 import Header from "@/components/ui/header"
 import Footer from '@/components/ui/footer'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
 export default function Register() {
-  const { toast } = useToast()
   const [registrationType, setRegistrationType] = useState<'team' | 'individual'>('team')
   const [email, setEmail] = useState('')
   const [teamName, setTeamName] = useState('')
@@ -51,19 +48,11 @@ export default function Register() {
         console.log(data.url);
         window.location.href = data.url
       } else {
-        toast({
-          title: "Error",
-          description: data.error || "An unexpected error occurred. Please try again.",
-          variant: "destructive",
-        })
+        console.error('Error:', data.error || "An unexpected error occurred. Please try again.")
       }
     } catch (error) {
       console.error('Error:', error)
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred. Please try again.",
-        variant: "destructive",
-      })
+      
     } finally {
       setIsLoading(false)
     }
@@ -225,7 +214,6 @@ export default function Register() {
         </Card>
       </main>
       <Footer />
-      <Toaster />
     </div>
   )
 }
