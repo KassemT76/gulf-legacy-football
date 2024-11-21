@@ -20,6 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+
 // async function addPost(author: string, body: string, title: string) {
 //   try {
 //     const docRef = await addDoc(collection(db, "BlogPosts"), {
