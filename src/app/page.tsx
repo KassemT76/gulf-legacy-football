@@ -1,6 +1,9 @@
 import React from "react";
 
 import HomePage from "./home";
+import Preorder from "./preorder";
+
+
 import { initializeApp } from "firebase/app";
 import { collection, DocumentReference, getDoc, getDocs, getFirestore, limit, orderBy, query } from "firebase/firestore";
 
@@ -42,7 +45,8 @@ export default async function Home() {
   });
   return (
     <div className="min-h-screen background text-foreground">
-      <HomePage upcomingMatches={matches}></HomePage>
+      <Preorder></Preorder>
+      {/* <HomePage upcomingMatches={matches}></HomePage> */}
     </div>
   );
 }

@@ -91,6 +91,35 @@ body {
   }
 }
 
+.preorderImage{
+  width: 100%;
+  height: 100vh;
+}
+#preorder {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+#preorder::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url( https://img.freepik.com/free-photo/empty-football-field-green-grass_155003-2491.jpg?t=st=1732237669~exp=1732241269~hmac=e957b1677eab661bc35c84487825bfdc7ef7811075c4ad7bddca4a48ad85c482&w=1380
+  );
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(15%) ;
+}
+
 #pic {
   background-image: url(https://img.freepik.com/free-photo/view-soccer-field-with-grass_23-2150887312.jpg);
   background-repeat: no-repeat;
