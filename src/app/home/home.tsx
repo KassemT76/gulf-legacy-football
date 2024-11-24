@@ -11,7 +11,7 @@ import Footer from "@/components/ui/footer";
 import BlurFade from "@/components/ui/blur-fade";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
- 
+
 type AnimatedCounterProps = {
   target: string; // or string if it can be a string representation of a number
   duration?: number;
@@ -48,8 +48,8 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
       <Header/>
 
       {/* Hero Section */}
-      <motion.section 
-        id="pic" 
+      <motion.section
+        id="pic"
         className="py-20 relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -70,12 +70,12 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
             </div>
           </BlurFade>
         </div>
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-0"
-          animate={{ 
+          animate={{
             backgroundPosition: ["0% 0%", "100% 100%"],
           }}
-          transition={{ 
+          transition={{
             duration: 20,
             ease: "linear",
             repeat: Infinity,
@@ -90,7 +90,7 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
       </motion.section>
 
       {/* About Us Section */}
-      <BlurFade delay={0.25} inView>
+      <BlurFade delay={0.1}>
         <section id="about" className="bg-green-800 py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">About Us</h2>
@@ -114,7 +114,6 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
           </div>
         </section>
       </BlurFade>
-      
       <BlurFade delay={0.25} inView>
         <section id="services" className="py-20 bg-950">
           <div className="container mx-auto px-4">

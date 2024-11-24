@@ -6,6 +6,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs} from 'firebase/firestore/lite';
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
+import BlurFade from "@/components/ui/blur-fade";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,7 +31,7 @@ export default async function standings() {
   const teamsCollection = collection(db, 'Teams');
   const teamsSnapShot = await getDocs(teamsCollection);
   const tl = teamsSnapShot.docs.map(doc => doc.data());
-  
+
   const teamsList = tl.filter(item => item.division != "-1" && item.division != undefined );
 
   teamsList.map((item) => {
@@ -85,7 +86,8 @@ export default async function standings() {
     <div>
       {/* Header */}
       <Header/>
-       {/* Rankings Section */}
+
+      <BlurFade delay={0.25}>
       <section id="rankings" className="bg-green-800 py-20">
         <div className="container mx-auto px-4 bg-green-800 text-secondary-foreground">
           <h2 className="text-3xl text-white font-bold mb-8 text-center">Team Standings</h2> 
@@ -159,6 +161,9 @@ export default async function standings() {
       ))}
         </div>
       </section>
+      </BlurFade>
+       {/* Rankings Section */}
+      
 
       <Footer/>
     </div>

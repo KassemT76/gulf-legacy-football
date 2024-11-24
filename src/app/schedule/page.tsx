@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import ScheduleTable from "@/app/schedule/scheduleTable"; // Client component
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
+import BlurFade from "@/components/ui/blur-fade";
 
 
 // Firebase configuration
@@ -75,7 +76,6 @@ export default async function Schedule() {
   const teamsSet = new Set<string>();
     weeks.forEach((week) => {
       week.forEach((match) => {
-        
         teamsSet.add(match.teamOne);
         teamsSet.add(match.teamTwo);
       });
@@ -86,14 +86,17 @@ export default async function Schedule() {
   return (
     <div>
     <Header/>
-    <section id="rankings" className="bg-green-800 py-20">
+    <BlurFade delay={0.1}>
+      <section id="rankings" className="bg-green-800 py-20">
         <div className="container mx-auto px-4 bg-green-800 text-white">
         <h2 className="text-2xl font-bold">Gulf Legacy Football Schedule</h2>
         <br></br>
         <ScheduleTable weeks={weeks} teams={teams}/> {/* Pass serialized data to the Client Component */}
         </div>
       </section>
-      <Footer/>
+    </BlurFade>
+
+    <Footer/>
     </div>
   );
 }
