@@ -57,7 +57,7 @@ export default async function Schedule() {
   const date = new Date(seasonStart);
 
   matches.forEach((element) => {
-    const matchDate = new Date(element.kickOffTime); 
+    const matchDate = new Date(element.kickOffTime);
     const differenceInMs = matchDate.getTime() - date.getTime();
     const differenceInWeeks = Math.floor(differenceInMs / (1000 * 60 * 60 * 24 * 7));
 

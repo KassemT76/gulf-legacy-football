@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -11,16 +11,20 @@ import Header from "@/components/ui/header"
 import Footer from '@/components/ui/footer'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+import { Terminal } from 'lucide-react'
+import BlurFade from '@/components/ui/blur-fade'
 
 export default function Register() {
   const [registrationType, setRegistrationType] = useState<'team' | 'individual'>('team')
   const [email, setEmail] = useState('')
   const [teamName, setTeamName] = useState('')
-  const [numPeople, setNumPeople] = useState('')
   const [fullName, setFullName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [teamPos, setTeamPos] = useState('')
+
   const [isLoading, setIsLoading] = useState(false)
+  const [isFailed, setFailed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,7 +41,6 @@ export default function Register() {
           email,
           phoneNumber,
           teamName,
-          numPeople,
           teamPos,
           fullName,
         }),
@@ -47,27 +50,52 @@ export default function Register() {
       if (response.ok) {
         console.log(data.url);
         window.location.href = data.url
+        const q = new URLSearchParams(window.location?.search);
+        const s = q.get('canceled');
+
+        console.log(s);
+
       } else {
         console.error('Error:', data.error || "An unexpected error occurred. Please try again.")
       }
     } catch (error) {
       console.error('Error:', error)
-      
     } finally {
       setIsLoading(false)
     }
   }
 
+  useEffect(() => {
+    const q = new URLSearchParams(window.location?.search)
+    const c = q.get('canceled');
+ 
+    if(c === "true"){
+      setFailed(true);
+    }
+  }, [])
+
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-800 to-green-600">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-12">
+        {isFailed && (
+          <BlurFade delay={0.1}>
+              <Alert className='bg-red-700 my-4'>
+            <Terminal className="h-4 w-4" />
+            <AlertTitle>Stripe Payment Cancelled!</AlertTitle>
+            <AlertDescription>
+              If you did not mean to cancel payment, please try again. If this problem persisists, please feel free to contact us!
+            </AlertDescription>
+          </Alert>
+          </BlurFade>
+          
+        )}
         <Card className="max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">League Registration</CardTitle>
-            <CardDescription>Sign up for an OJ Football league</CardDescription>
+            <CardDescription>Sign up for an Gulf Legacy Football league</CardDescription>
           </CardHeader>
-          
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-6">
               <div className="space-y-2">
@@ -79,11 +107,11 @@ export default function Register() {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="team" id="team" />
-                    <Label htmlFor="team">Team</Label>
+                    <Label htmlFor="team">Team - 100AED</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="individual" id="individual" />
-                    <Label htmlFor="individual">Individual</Label>
+                    <Label htmlFor="individual">Individual - 50AED</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -147,18 +175,6 @@ export default function Register() {
                       placeholder="Enter your team name" 
                       value={teamName} 
                       onChange={(e) => setTeamName(e.target.value)} 
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="numPeople">Number of People</Label>
-                    <Input 
-                      id="numPeople" 
-                      name="numPeople" 
-                      type="number" 
-                      placeholder="Expected number of team members" 
-                      value={numPeople} 
-                      onChange={(e) => setNumPeople(e.target.value)} 
                       required
                     />
                   </div>

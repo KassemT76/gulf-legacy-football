@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OJ Football Leauges",
-  description: "Made by Kassem Taha",
+  title: "Gulf Legacy Football Leauges",
+  description: "Epic football matches in our leauge!",
 };
 
 export default function RootLayout({

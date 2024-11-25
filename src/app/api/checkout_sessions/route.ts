@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 // Define the POST handler
 export async function POST(request: Request) {
-  const { registrationType, email, phoneNumber, teamName, numPeople, teamPos, fullName } = await request.json();
+  const { registrationType, email, phoneNumber, teamName, teamPos, fullName } = await request.json();
 
   let customer;
     try {
@@ -14,11 +14,12 @@ export async function POST(request: Request) {
         email: email,
         limit: 1,
       });
-      
+
       if (existingCustomers.data.length > 0) {
         customer = existingCustomers.data[0];
       } else {
         customer = await stripe.customers.create({
+          name: fullName,
           email: email,
           phone: phoneNumber,
         });
@@ -28,7 +29,6 @@ export async function POST(request: Request) {
     }
   try {
     // Step 1: Check if customer exists or create a new one
-  
     /*
     Team REGISTRATION CHECKOUT
     */
@@ -47,17 +47,13 @@ export async function POST(request: Request) {
         cancel_url: `${request.headers.get('origin')}/register?canceled=true`,
         metadata: {
           teamName: teamName as string,
-          numPeople: numPeople as string,
         },
       });
       return NextResponse.json({ url: session.url }, { status: 200 });
-    } 
-    
-    
+    }
     /*
     Indiviual REGISTRATION CHECKOUT
     */
-    
     else if (registrationType === 'individual') {
       const session = await stripe.checkout.sessions.create({
         customer: customer.id,
@@ -77,12 +73,10 @@ export async function POST(request: Request) {
         },
       }); // Replace with your actual individual price ID
       return NextResponse.json({ url: session.url }, { status: 200 });
-    } 
-    
+    }
     else {
       return NextResponse.json({ error: 'Invalid registration type' }, { status: 400 });
     }
-  
   } catch (err: any) {
     console.error("Error creating Stripe Checkout session:", err.message);
     return NextResponse.json({ error: err.message }, { status: 500 });
