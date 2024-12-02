@@ -82,12 +82,6 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
       <br></br>
 
-      {selectedWeek !== null && (
-        <h2>
-          {selectedWeek === null ? "All Weeks" : `Week ${selectedWeek + 1}`}
-        </h2>
-      )}
-
       {selectedWeek === null
         ? getMatchesforAll().map((weekMatches, weekIndex) => {
             // Compute the date for the current week
@@ -106,9 +100,11 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
             return (
               <div key={weekIndex}>
-                <h2>
-                  Week {weekIndex + 1} - ({weekDate.toDateString()})
-                </h2>
+                {selectedWeek !== null && (
+                  <h2>
+                    {selectedWeek === null ? "All Weeks" : `Week ${selectedWeek + 1} - ${weekDate.toDateString()}`}
+                  </h2>
+                )}
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -168,9 +164,11 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
             return (
               <div>
-                <h2>
-                  Week {selectedWeek + 1} - ({weekDate.toDateString()})
-                </h2>
+                {selectedWeek !== null && (
+                  <h2>
+                    {selectedWeek === null ? "All Weeks" : `Week ${selectedWeek + 1} - ${weekDate.toDateString()}`}
+                  </h2>
+                )}
                 <Table>
                 <TableHeader>
                     <TableRow>

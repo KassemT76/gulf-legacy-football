@@ -6,6 +6,7 @@ import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { metadata } from '../layout';
 
 export default function SuccessPage() {
   const [sessionDetails, setSessionDetails] = useState<any>(null)
@@ -35,6 +36,7 @@ export default function SuccessPage() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          console.log(data)
           setSessionDetails(data)
           setMessage(data.message)
         } else {
@@ -93,11 +95,18 @@ export default function SuccessPage() {
                     <p className="text-center text-lg">{message}</p>
                     {sessionDetails.metadata && (
                       <div className="bg-green-100 text-green-800 p-4 rounded-lg">
+                        <h2 className="font-semibold text-xl mb-2">Personal Information</h2>
+                        <p>Full Name: {sessionDetails.name}</p>
+                        <p>Email: {sessionDetails.email}</p>
+                        <p>Phone Number: {sessionDetails.phoneNumber}</p>
+                      </div>
+                    )}
+                    {sessionDetails.metadata && (
+                      <div className="bg-green-100 text-green-800 p-4 rounded-lg">
                         {type === 'team' ? (
                           <>
                             <h2 className="font-semibold text-xl mb-2">Team Registration Details</h2>
                             <p>Team Name: {sessionDetails.metadata.teamName}</p>
-                            <p>Number of Players: {sessionDetails.metadata.numPeople}</p>
                           </>
                         ) : type === 'individual' ? (
                           <>
@@ -107,6 +116,7 @@ export default function SuccessPage() {
                         ) : null}
                       </div>
                     )}
+
                     <div className="text-center">
                       <p className="font-semibold mb-2">What&apos;s Next?</p>
                       <p>We&apos;ll send a confirmation email with further details about the event and your registration.</p>

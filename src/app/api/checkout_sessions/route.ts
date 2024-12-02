@@ -46,6 +46,8 @@ export async function POST(request: Request) {
         success_url: `${request.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}&type=${registrationType}`,
         cancel_url: `${request.headers.get('origin')}/register?canceled=true`,
         metadata: {
+          fullName: fullName as string,
+          phoneNumber: phoneNumber as string,
           teamName: teamName as string,
         },
       });

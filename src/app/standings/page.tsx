@@ -49,8 +49,6 @@ export default async function standings() {
     }
   }
 
-  console.log(divisionMap)
-
   divisionMap.forEach((value) => {
     value.sort(function(a: any, b: any){  
       if(a.points > b.points){
