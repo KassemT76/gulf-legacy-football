@@ -143,14 +143,30 @@ export default async function standings() {
             <TableBody>
               {teamList.map((team: any, index: any) => (
                 <TableRow key={team.teamName}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{team.teamName}</TableCell>
-                  <TableCell>{team.matchesPlayed}</TableCell>
-                  <TableCell>{team.matchesWon}</TableCell>
-                  <TableCell>{team.matchesLost}</TableCell>
-                  <TableCell>{team.matchesDrawn}</TableCell>
-                  <TableCell>{team.pointDifference}</TableCell>
-                  <TableCell>{team.points}</TableCell>
+                  {index < 3 ? (
+                    <>
+                      <TableCell>{index + 1}</TableCell>
+                      <TableCell>{team.teamName}</TableCell>
+                      <TableCell>{team.matchesPlayed}</TableCell>
+                      <TableCell>{team.matchesWon}</TableCell>
+                      <TableCell>{team.matchesLost}</TableCell>
+                      <TableCell>{team.matchesDrawn}</TableCell>
+                      <TableCell>{team.pointDifference}</TableCell>
+                      <TableCell>{team.points}</TableCell>
+                    </>
+                  ) : (
+                    <>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{team.teamName}</TableCell>
+                    <TableCell>{team.matchesPlayed}</TableCell>
+                    <TableCell>{team.matchesWon}</TableCell>
+                    <TableCell>{team.matchesLost}</TableCell>
+                    <TableCell>{team.matchesDrawn}</TableCell>
+                    <TableCell>{team.pointDifference}</TableCell>
+                    <TableCell>{team.points}</TableCell>
+                    </>
+                  )}
+                  
                 </TableRow>
               ))}
             </TableBody>

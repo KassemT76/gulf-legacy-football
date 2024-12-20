@@ -6,17 +6,41 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowBigUpDash, Trophy } from 'lucide-react';
+import { ArrowBigUpDash, Loader2, Trophy } from 'lucide-react';
 import Link from "next/link";
 
 export default function Preorder() {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false); // Track loading state
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle email submission here
-    console.log("Email submitted:", email);
-    // You can add your email submission logic here
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/preorder_email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message); // Success message from the server
+      } else {
+        setMessage(data.error || 'Failed to send email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting preorder email:', error);
+      setMessage('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false); // Reset loading state
+    }
   };
 
   return (
@@ -61,13 +85,26 @@ export default function Preorder() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <Link href="/home">
-          <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
+          <button
+        type="button"
+        onClick={handleSubmit}
+        className={`w-full flex items-center justify-center bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded ${
+          loading ? "cursor-not-allowed" : ""
+        }`}
+        disabled={loading}
+      >
+        {loading ? (
+          <Loader2 className="animate-spin mr-2" />
+        ) : (
           <Trophy className="mr-2" />
-          Get Updates
-          </Button>
-          </Link>
-          
+        )}
+        {loading ? "Loading..." : "Get Updates"}
+      </button>
+      {message && (
+        <p className="bg-gray-300 text-center px-2 py-2 rounded-lg text-black">
+          {message}
+        </p>
+      )}
         </form>
       </motion.div>
 
