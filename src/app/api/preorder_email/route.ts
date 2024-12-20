@@ -73,8 +73,6 @@ export async function POST(request: NextRequest) {
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent successfully:', info.response);
 
-    
-
     return NextResponse.json({
       success: true,
       message: "Email successfully sent!",
