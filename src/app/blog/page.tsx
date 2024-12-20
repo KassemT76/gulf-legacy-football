@@ -6,6 +6,7 @@ import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { initializeApp } from "firebase/app";
+import BlurFade from "@/components/ui/blur-fade";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -55,13 +56,10 @@ export default async function Blog() {
   return (
     <div className="bg-green-800 text-white">
       <Header/>
-      
+      <BlurFade delay={0.1}>
       <div className="w-full py-20 px-4 bg-green-800 flex flex-col items-center">
-
       <h2 className="text-4xl">Blog</h2>
-
       <p className="my-1 text-gray-200">Get caught up with what is happening in football in our community and worldwide!</p>
-      
       {posts.map((post) => (
             <Card key={post.title} className="container my-4">
             <CardHeader>
@@ -87,7 +85,7 @@ export default async function Blog() {
         </CardContent>
       </Card>
       </div>
-
+      </BlurFade>
       <Footer/>
     </div>
   );

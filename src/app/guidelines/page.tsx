@@ -5,12 +5,13 @@ import React from "react";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import BlurFade from "@/components/ui/blur-fade";
 
 export default function Guidelines() {
   return (
     <div className="bg-green-800 text-white">
       <Header/>
-      
+      <BlurFade delay={0.25}>
       <div className="w-full py-20 px-4 bg-green-800 flex flex-col items-center">
         {/* Guidelines Section */}
         <h1 className="text-3xl font-bold mb-8 text-center">Guidelines</h1>
@@ -82,7 +83,6 @@ export default function Guidelines() {
 
         {/* FAQ Section */}
         <h1 className="text-3xl font-bold mb-8 text-center">FAQ</h1>
-        
         <div className="container mx-auto py-8 px-4">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
@@ -153,6 +153,8 @@ export default function Guidelines() {
           </Accordion>
         </div>
       </div>
+      </BlurFade>
+      
 
       <Footer/>
     </div>
