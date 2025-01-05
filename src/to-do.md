@@ -1,8 +1,8 @@
 - Home page: remove header cutoff and add picture that blends in with nav bar. DONE
 
-- Change landing picture to animation and put player verse in the center and add slogan in middle.
+- Change landing picture to animation and put player verse in the center and add slogan in middle. DONE
 
-- About us removed and changed to who we are. Change backgrounds to white. Headers are bolded with green color and text will be black. Align on the left with pic on the right. Same for services.
+- About us removed and changed to who we are. Change backgrounds to white. Headers are bolded with green color and text will be black. Align on the left with pic on the right. Same for services. DONE
 
 - Put cards above each other and when hovering background becomes black, text white and header green.
 
@@ -14,6 +14,6 @@
 
 - Add pictures to standings and schedule. Guidelines moved to the left and change color scheme to match home page. Remove bullet points and find proper format.
 
-background black text green
+background black text green DONE
 
-refactor and use css vars
+refactor and use css vars DONE
