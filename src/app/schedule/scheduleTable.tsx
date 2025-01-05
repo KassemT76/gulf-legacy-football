@@ -41,7 +41,7 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
   const startDate = new Date("2024-09-22T11:00:00-04:00");
 
   return (
-    <div>
+    <div className="bg-background">
       <Label htmlFor="week-type">Select Week To View</Label>
       <Select
         onValueChange={(value) =>
@@ -105,7 +105,7 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
                     {selectedWeek === null ? "All Weeks" : `Week ${selectedWeek + 1} - ${weekDate.toDateString()}`}
                   </h2>
                 )}
-                <Table>
+                <Table className="shadow-xl border border-green-950 border-2">
                   <TableHeader>
                     <TableRow>
                       <TableHead>Team 1</TableHead>

@@ -84,11 +84,11 @@ export default async function Schedule() {
   const teams = Array.from(teamsSet);
   console.table(teams)
   return (
-    <div>
+    <div className="bg-background">
     <Header/>
     <BlurFade delay={0.1}>
-      <section id="rankings" className="bg-green-800 py-20">
-        <div className="container mx-auto px-4 bg-green-800 text-white">
+      <section id="rankings" className="bg-background py-20">
+        <div className="container mx-auto px-4 text-foreground">
         <h2 className="text-2xl font-bold">Gulf Legacy Football Schedule</h2>
         <br></br>
         <ScheduleTable weeks={weeks} teams={teams}/> {/* Pass serialized data to the Client Component */}
