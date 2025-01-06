@@ -55,7 +55,7 @@ export default async function Blog() {
 
   return (
     <div className="bg-background text-foreground">
-      <Header/>
+      <Header transparent={false}/>
       <BlurFade delay={0.1}>
       <div className="w-full py-20 px-4 flex flex-col items-center">
       <h2 className="text-4xl">Blog</h2>

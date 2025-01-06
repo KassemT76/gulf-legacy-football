@@ -85,7 +85,7 @@ export default async function Schedule() {
   console.table(teams)
   return (
     <div className="bg-background">
-    <Header/>
+    <Header transparent={false}/>
     <BlurFade delay={0.1}>
       <section id="rankings" className="bg-background py-20">
         <div className="container mx-auto px-4 text-foreground">

@@ -77,7 +77,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/25">
-      <Header />
+      <Header transparent={false}/>
       <main className="flex-grow container mx-auto px-4 py-12">
         {isFailed && (
           <BlurFade delay={0.1}>

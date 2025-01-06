@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import logo from '@/images/logo.png'
 import gif from '@/images/landing.gif'
+import Header from "@/components/ui/header";
 
 type AnimatedCounterProps = {
   target: string; // or string if it can be a string representation of a number
@@ -58,61 +59,8 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
         transition={{ duration: 1 }}
       >
         <Image className="absolute inset-0 w-auto md:w-full h-full object-cover -z-10" src={gif} alt="alt" width={200} height={2000} />
-        {/* Header Section */}
-        <header className="text-primary-foreground z-50 w-full">
-        <title>Gulf Legacy Football</title>
-        <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-          <Link href="/">
-          <Image src={logo} alt="alt" width={100} height={100} />
-          </Link>
-          <nav className="w-full md:w-auto">
-            <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 items-stretch">
-              <li className="w-full md:w-auto">
-                <Link href="/home" className="block w-full">
-                  <Button variant="ghost" className="rounded-xl w-full hover:text-primary hover:bg-primary-foreground">
-                    Home
-                  </Button>
-                </Link>
-              </li>
-              <li className="w-full md:w-auto">
-                <Link href="/standings" className="block w-full">
-                  <Button variant="ghost" className="rounded-xl w-full hover:text-primary hover:bg-primary-foreground">
-                    Standings
-                  </Button>
-                </Link>
-              </li>
-              <li className="w-full md:w-auto">
-                <Link href="/schedule" className="block w-full">
-                  <Button variant="ghost" className="rounded-xl w-full hover:text-primary hover:bg-primary-foreground">
-                    Schedule
-                  </Button> 
-                </Link>
-              </li>
-              <li className="w-full md:w-auto">
-                <Link href="/guidelines" className="block w-full">
-                  <Button variant="ghost" className="rounded-xl w-full hover:text-primary hover:bg-primary-foreground">
-                    Guidelines
-                  </Button>
-                </Link>
-              </li>
-              <li className="w-full md:w-auto">
-                <Link href="/blog" className="block w-full">
-                  <Button variant="ghost" className="rounded-xl w-full hover:text-primary hover:bg-primary-foreground">
-                    Blog
-                  </Button>
-                </Link>
-              </li>
-              <li className="w-full md:w-auto">
-                <Link href="/register" className="block w-full ">
-                  <Button variant="secondary" className="w-full bg-accent text-primary hover:text-accent-foreground/75 hover:bg-accent/75 rounded-xl">
-                    Register Now!
-                  </Button>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        </header>
+        {/* Header Section */} 
+        <Header transparent={true}></Header>
         <div className="container my-10 mx-auto px-4 text-center z-10">
           <BlurFade delay={0.25}>
             <h2 id="picText2" className="text-4xl font-bold mb-4 italic">Welcome to Gulf Legacy Football Leauges</h2>
@@ -135,7 +83,7 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
       <BlurFade delay={0.1}>
         <section id="about" className="bg-background text-foreground py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">Who We Are</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text-dark">Who We Are</h2>
             <p className="text-lg  max-w-2xl mx-auto text-left">
               OJ Football is dedicated to bringing our community together through the love of football. We organize and manage local football leagues, providing a platform for players of all skill levels to compete, have fun, and stay active.
             </p>
@@ -160,16 +108,18 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
       <BlurFade delay={0.25} inView>
         <section id="services" className="py-20 bg-foreground text-background">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-            <div className="grid grid-rows-1 md:grid-rows-3 gap-8">
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text-light">Our Services</h2>
+            <div className="grid grid-rows-1 gap-8">
               <BlurFade delay={0.25} inView>
                 <motion.div whileHover={{ scale: 1.25 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Card id="leaugePic" className="rounded-none hover:text-sky-700">
-                    <CardHeader>
-                      <CardTitle>League Organization</CardTitle>
+                  <Card id="leaugePic" className="rounded-xl overflow-hidden">
+                    <CardHeader className="w-full">
+                      <CardTitle className="w-full">
+                        <h2 className="text-lg font-bold text-left gradient-text-light w-full">League Organization</h2>
+                        </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <p>We create and manage football leagues for various age groups and skill levels.</p>
+                    <CardContent className="w-full">
+                      <p className="text-left">We create and manage football leagues for various age groups and skill levels.</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -177,7 +127,7 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
 
               <BlurFade delay={0.5} inView>
                 <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 900 }}>
-                  <Card id="refereePic" className="rounded-none h-[100px]">
+                  <Card id="refereePic" className="rounded-xl overflow-hidden">
                     <CardHeader>
                       <CardTitle>Referee Services</CardTitle>
                     </CardHeader>
@@ -190,7 +140,7 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
 
               <BlurFade delay={0.75} inView>
                 <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 100 }}>
-                  <Card id="rentalPic" className="rounded-none">
+                  <Card id="rentalPic" className="rounded-xl overflow-hidden">
                     <CardHeader>
                       <CardTitle>Field Rentals</CardTitle>
                     </CardHeader>
@@ -209,7 +159,7 @@ export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }
       <BlurFade delay={0.25} inView>
         <section id="upcomingGames" className="text-foreground bg-background py-20">
           <div className="mx-auto px-4 flex flex-col items-center">
-            <h2 className="text-3xl font-bold mb-8 text-center">Upcoming Games</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text-dark">Upcoming Games</h2>
             <div className="flex flex-col container">
             {upcomingMatches != null
               ? upcomingMatches.map((item, idx) => {

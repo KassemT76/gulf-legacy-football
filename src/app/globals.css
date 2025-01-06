@@ -16,22 +16,22 @@ body {
   }
 }
 
-.header-text {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
+.gradient-text-light {
+  background: linear-gradient(45deg, #00e600, #99ff99, #00e600);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  
 }
 
-.header-text.dark {
-  background: linear-gradient(45deg, #004d00, #1b8a1b, #004d00);
+.gradient-text-dark {
+  background: linear-gradient(45deg, #004d00, #41c041, #004d00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  
 }
 
-.header-text.light {
-  background: linear-gradient(45deg, #00e600, #99ff99, #00e600);
-}
 
 .preorderImage{
   width: 100%;
@@ -76,6 +76,25 @@ body {
   width:100%;
   height:100%;
   background-image:url(https://img.freepik.com/free-photo/view-soccer-field-with-grass_23-2150887312.jpg);
+  background-size:cover;
+  z-index:-1;
+  filter: brightness(50%) ;
+}
+
+#standingsPic {
+  background-image: url('../images/standings.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#standingsPic::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-image:url('../images/standings.png');
   background-size:cover;
   z-index:-1;
   filter: brightness(50%) ;

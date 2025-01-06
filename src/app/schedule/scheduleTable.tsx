@@ -100,12 +100,16 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
             return (
               <div key={weekIndex}>
+                <h2>
+                  Week {weekIndex + 1} - ({weekDate.toDateString()})
+                </h2>
+                
                 {selectedWeek !== null && (
                   <h2>
                     {selectedWeek === null ? "All Weeks" : `Week ${selectedWeek + 1} - ${weekDate.toDateString()}`}
                   </h2>
                 )}
-                <Table className="shadow-xl border border-green-950 border-2">
+                <Table className="shadow-xl">
                   <TableHeader>
                     <TableRow>
                       <TableHead>Team 1</TableHead>

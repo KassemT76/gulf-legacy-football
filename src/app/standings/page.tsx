@@ -8,6 +8,7 @@ import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import BlurFade from "@/components/ui/blur-fade";
 
+import standingsPic from "@/images/standings.jpeg"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -83,12 +84,21 @@ export default async function standings() {
   return (
     <div className="bg-background">
       {/* Header */}
-      <Header/>
+      
+
+     
+      <div id="standingsPic">
+      <Header transparent={true}/>
+      <h2 className="text-4xl font-bold mb-8 text-center gradient-text-light">Team Standings</h2> 
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      </div>
 
       <BlurFade delay={0.25}>
       <section id="rankings" className="bg-background py-20">
         <div className="container mx-auto px-4 text-secondary-foreground">
-          <h2 className="text-3xl font-bold mb-8 text-center">Team Standings</h2> 
           <h2 className="text-xl font-bold mb-4">All Divisions</h2>
           <Table>
           <TableHeader>
