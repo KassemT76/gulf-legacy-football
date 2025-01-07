@@ -89,8 +89,7 @@ export default async function Schedule() {
     <BlurFade delay={0.1}>
       <section id="rankings" className="bg-background py-20">
         <div className="container mx-auto px-4 text-foreground">
-        <h2 className="text-2xl font-bold">Gulf Legacy Football Schedule</h2>
-        <br></br>
+        <h2 className="text-2xl font-bold mb-2">Gulf Legacy Football Schedule</h2>
         <ScheduleTable weeks={weeks} teams={teams}/> {/* Pass serialized data to the Client Component */}
         </div>
       </section>

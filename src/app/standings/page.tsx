@@ -89,7 +89,7 @@ export default async function standings() {
      
       <div id="standingsPic">
       <Header transparent={true}/>
-      <h2 className="text-4xl font-bold mb-8 text-center gradient-text-light">Team Standings</h2> 
+
       <br></br>
       <br></br>
       <br></br>
@@ -98,9 +98,12 @@ export default async function standings() {
 
       <BlurFade delay={0.25}>
       <section id="rankings" className="bg-background py-20">
+        <h2 className="container text-4xl font-bold mx-auto mb-8 text-left text-foreground">Team Standings</h2> 
+
         <div className="container mx-auto px-4 text-secondary-foreground">
+
           <h2 className="text-xl font-bold mb-4">All Divisions</h2>
-          <Table>
+          <Table className="shadow-xl">
           <TableHeader>
             <TableRow>
               <TableHead>Rank</TableHead>
@@ -137,7 +140,7 @@ export default async function standings() {
         {Array.from(divisionMap.entries()).map(([division, teamList]) => (
         <div key={division} className="mb-8">
           <h2 className="text-xl font-bold mb-4 text-foreground">{division}</h2>
-          <Table>
+          <Table className="shadow-xl">
             <TableHeader>
               <TableRow>
                 <TableHead>Rank</TableHead>

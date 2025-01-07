@@ -52,7 +52,7 @@ export default function Header({transparent}: { transparent: boolean}){
               </li>
               <li className="w-full md:w-auto">
                 <Link href="/register" className="block w-full">
-                  <Button variant="secondary" className="w-full bg-accent text-secondary-foreground hover:text-accent-foreground hover:bg-accent/75">
+                  <Button variant="secondary" className="rounded-xl w-full bg-accent text-secondary-foreground hover:text-accent-foreground hover:bg-accent/75">
                     Register Now!
                   </Button>
                 </Link>

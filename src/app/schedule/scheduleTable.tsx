@@ -42,7 +42,9 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
   return (
     <div className="bg-background">
-      <Label htmlFor="week-type">Select Week To View</Label>
+      <div className="flex flex-col gap-4">
+        <div>
+        <Label htmlFor="week-type">Select Week To View</Label>
       <Select
         onValueChange={(value) =>
           handleWeekSelection(value === "all" ? null : Number(value))
@@ -60,7 +62,9 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
           ))}
         </SelectContent>
       </Select>
-
+        </div>
+      
+      <div>
       <Label htmlFor="team-select">Select Team To View</Label>
       <Select
         onValueChange={(value) =>
@@ -79,6 +83,11 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
           ))}
         </SelectContent>
       </Select>
+      </div>
+    
+
+      </div>
+
 
       <br></br>
 
@@ -100,7 +109,7 @@ export default function ScheduleTable({ weeks, teams }: { weeks: any[][], teams:
 
             return (
               <div key={weekIndex}>
-                <h2>
+                <h2 className="font-bold mb-2 text-foreground">
                   Week {weekIndex + 1} - ({weekDate.toDateString()})
                 </h2>
                 
