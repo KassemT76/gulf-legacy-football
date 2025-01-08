@@ -9,48 +9,48 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
+		colors: {
+			background: 'hsl(240, 4.8%, 95.9%)', // Light grayish blue for the background
+			foreground: 'hsl(0, 0%, 10%)', // Very dark gray for text
+			card: {
+			  DEFAULT: 'hsl(240, 4.8%, 100%)', // Slightly lighter than background
+			  foreground: 'hsl(0, 0%, 10%)', // Matches foreground for readability
+			},
+			popover: {
+			  DEFAULT: 'hsl(240, 4.8%, 92%)', // Slightly darker than background for subtle distinction
+			  foreground: 'hsl(0, 0%, 10%)', // Matches foreground for consistency
+			},
+			primary: {
+			  DEFAULT: 'hsl(240, 5.9%, 20%)', // Darker version of foreground
+			  foreground: 'hsl(240, 4.8%, 95.9%)', // Contrasts well with primary
+			},
+			secondary: {
+			  DEFAULT: 'hsl(240, 4.8%, 80%)', // Slightly darker than background
+			  foreground: 'hsl(0, 0%, 20%)', // Darker than the default foreground
+			},
+			muted: {
+			  DEFAULT: 'hsl(240, 4.8%, 90%)', // Muted version of background
+			  foreground: 'hsl(0, 0%, 40%)', // Subtle gray for less emphasis
+			},
+			accent: {
+			  DEFAULT: 'hsl(97, 80%, 67%)', // Bright green for accents and hovers
+			  foreground: 'hsl(0, 0%, 100%)', // White for contrast
+			},
+			destructive: {
+			  DEFAULT: 'hsl(0, 70%, 55%)', // Warm red for destructive actions
+			  foreground: 'hsl(0, 0%, 100%)', // White for contrast
+			},
+			border: 'hsl(240, 4.8%, 80%)', // Light border color for subtle effects
+			input: 'hsl(240, 4.8%, 85%)', // Matches background with slight contrast
+			ring: 'hsl(97, 80%, 67%)', // Matches accent for focus indicators
+			chart: {
+			  1: 'hsl(97, 80%, 67%)', // Matches accent
+			  2: 'hsl(240, 5.9%, 20%)', // Matches primary
+			  3: 'hsl(0, 70%, 55%)', // Matches destructive
+			  4: 'hsl(200, 60%, 60%)', // Complementary blue for variety
+			  5: 'hsl(50, 70%, 50%)', // Warm yellow for additional contrast
+			},
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

@@ -8,6 +8,7 @@ import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import BlurFade from "@/components/ui/blur-fade";
 
+import standingsPic from "@/images/standings.jpeg"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -81,16 +82,28 @@ export default async function standings() {
   });
 
   return (
-    <div>
+    <div className="bg-background">
       {/* Header */}
-      <Header/>
+      
+
+     
+      <div id="standingsPic">
+      <Header transparent={true}/>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      </div>
 
       <BlurFade delay={0.25}>
-      <section id="rankings" className="bg-green-800 py-20">
-        <div className="container mx-auto px-4 bg-green-800 text-secondary-foreground">
-          <h2 className="text-3xl text-white font-bold mb-8 text-center">Team Standings</h2> 
-          <h2 className="text-xl font-bold mb-4 text-white">All Divisions</h2>
-          <Table>
+      <section id="rankings" className="bg-background py-20">
+        <h2 className="container text-4xl font-bold mx-auto mb-8 text-left text-foreground">Team Standings</h2> 
+
+        <div className="container mx-auto px-4 text-secondary-foreground">
+
+          <h2 className="text-xl font-bold mb-4">All Divisions</h2>
+          <Table className="shadow-xl">
           <TableHeader>
             <TableRow>
               <TableHead>Rank</TableHead>
@@ -126,8 +139,8 @@ export default async function standings() {
 
         {Array.from(divisionMap.entries()).map(([division, teamList]) => (
         <div key={division} className="mb-8">
-          <h2 className="text-xl font-bold mb-4 text-white">{division}</h2>
-          <Table>
+          <h2 className="text-xl font-bold mb-4 text-foreground">{division}</h2>
+          <Table className="shadow-xl">
             <TableHeader>
               <TableRow>
                 <TableHead>Rank</TableHead>

@@ -52,10 +52,10 @@ export default function SuccessPage() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header transparent={false}/>
 
-      <main className="flex-grow bg-gradient-to-b from-green-800 to-green-600 text-white">
+      <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12">
           <Card className="max-w-2xl mx-auto">
             <CardHeader>

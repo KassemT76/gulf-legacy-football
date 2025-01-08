@@ -26,7 +26,7 @@ const socialLinks: SocialLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-green-950 px-4 text-primary-foreground py-16 flex flex-col items-center justify-between w-full">
+    <footer className="bg-foreground px-4 text-primary-foreground py-16 flex flex-col items-center justify-between w-full">
       <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
       <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
         {contactInfo.map((info, index) => (
@@ -41,7 +41,6 @@ export default function Footer() {
           <div key={index} className="flex items-center">
             <Link href={link.href} className="flex items-center w-full">
               <link.icon className="mr-2" />
-              <span>{link.handle}</span>
             </Link>
           </div>
         ))}
