@@ -10,7 +10,7 @@ import BlurFade from "@/components/ui/blur-fade";
 export default function Guidelines() {
   return (
     <div className="bg-background text-foreground flex flex-col ">
-      <Header/>
+      <Header transparent={false}/>
       <BlurFade delay={0.25}>
       <div className="container px-10 py-20 px-flex flex-col items-center mx-auto">
         {/* Guidelines Section */}
