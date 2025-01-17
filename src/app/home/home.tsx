@@ -48,8 +48,6 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ target, duration = 20
 export default function HomePage({ upcomingMatches }: { upcomingMatches: any[] }){
   return (
     <div className="min-h-screen bg-foreground text-primary-foreground">
-      
-      
 
       {/* Hero Section */}
       <motion.section

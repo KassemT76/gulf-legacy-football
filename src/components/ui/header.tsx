@@ -66,7 +66,8 @@ export default function Header({transparent}: { transparent: boolean}){
     <div>
       <header className="text-primary-foreground z-50 w-full">
         <title>Gulf Legacy Football</title>
-        <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+       
+        <div className="container mx-auto px-4 py-4 flex-row hidden md:flex justify-between items-center">
           <Link href="/">
           <Image src={logo} alt="alt" width={100} height={100} />
           </Link>
@@ -117,6 +118,60 @@ export default function Header({transparent}: { transparent: boolean}){
             </ul>
           </nav>
         </div>
+
+        <div className="flex flex-col w-full md:hidden items-center justify-center">
+          <div className="container mx-auto px-1 py-1 flex flex-col items-center">
+            <Link href="/" className="mb-4">
+              <Image src={logo} alt="alt" width={100} height={100} />
+            </Link>
+            <nav className="w-full">
+              <ul className="flex flex-row flex-wrap justify-center space-x-2">
+                <li>
+                  <Link href="/home">
+                    <Button variant="ghost" className="rounded-xl hover:text-primary hover:bg-primary-foreground text-xs">
+                      Home
+                    </Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/standings">
+                    <Button variant="ghost" className="rounded-xl hover:text-primary hover:bg-primary-foreground text-xs">
+                      Standings
+                    </Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/schedule">
+                    <Button variant="ghost" className="rounded-xl hover:text-primary hover:bg-primary-foreground text-xs">
+                      Schedule
+                    </Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/guidelines">
+                    <Button variant="ghost" className="rounded-xl hover:text-primary hover:bg-primary-foreground text-xs">
+                      Guidelines
+                    </Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog">
+                    <Button variant="ghost" className="rounded-xl hover:text-primary hover:bg-primary-foreground text-xs">
+                      Blog
+                    </Button>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <Link href="/register" className="flex justify-center w-full mt-4">
+            <Button variant="secondary" className="bg-accent text-primary hover:text-accent-foreground/75 hover:bg-accent/75 rounded-xl text-xs">
+              Register Now!
+            </Button>
+          </Link>
+        </div>
+
+        
         </header>
     </div>
   )
